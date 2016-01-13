@@ -22,10 +22,24 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int background=0x7f020000;
+        public static final int bg=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int nosql=0x7f020003;
+    }
+    public static final class id {
+        public static final int btnQuery=0x7f070005;
+        public static final int btnSave=0x7f070002;
+        public static final int btndel=0x7f070003;
+        public static final int btnupdate=0x7f070004;
+        public static final int etFirstName=0x7f070000;
+        public static final int lastname=0x7f070001;
+        public static final int tvFirstName=0x7f070006;
+        public static final int tvLastName=0x7f070007;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int activity_nosql=0x7f030001;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;

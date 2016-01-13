@@ -1,4 +1,4 @@
-package com.colintmiller.simplenosql;
+package com.colintmiller.simplenosql.test;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.test.ActivityUnitTestCase;
 
+import com.colintmiller.simplenosql.GsonSerialization;
+import com.colintmiller.simplenosql.NoSQL;
+import com.colintmiller.simplenosql.NoSQLEntity;
+import com.colintmiller.simplenosql.OperationObserver;
 import com.colintmiller.simplenosql.bean.SampleBean;
 import com.colintmiller.simplenosql.bean.SampleBean2;
 import com.colintmiller.simplenosql.bean.User;
@@ -138,7 +142,7 @@ public class NoSQLSaveTaskTest extends ActivityUnitTestCase<Activity> {
 		data.setId(9);
 		List<User> mUsers = new ArrayList<User>();
 
-		for (int i = 0; i < 5000; i++) {
+		for (int i = 0; i < 1000; i++) {
 
 			User mUser = new User();
 			mUser.setAge("15" + i);

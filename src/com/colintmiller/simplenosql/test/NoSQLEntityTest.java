@@ -1,4 +1,4 @@
-package com.colintmiller.simplenosql;
+package com.colintmiller.simplenosql.test;
 
 
 import android.app.Activity;
@@ -7,6 +7,8 @@ import android.test.ActivityUnitTestCase;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.colintmiller.simplenosql.GsonSerialization;
+import com.colintmiller.simplenosql.NoSQLEntity;
 import com.colintmiller.simplenosql.bean.SampleBean;
 
 

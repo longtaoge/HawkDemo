@@ -1,4 +1,4 @@
-package com.colintmiller.simplenosql;
+package com.colintmiller.simplenosql.test;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,6 +6,10 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.test.ActivityUnitTestCase;
 
+import com.colintmiller.simplenosql.NoSQL;
+import com.colintmiller.simplenosql.NoSQLEntity;
+import com.colintmiller.simplenosql.OperationObserver;
+import com.colintmiller.simplenosql.RetrievalCallback;
 import com.colintmiller.simplenosql.bean.SampleBean;
 import com.colintmiller.simplenosql.threading.QueryDelivery;
 import com.colintmiller.simplenosql.toolbox.SynchronousRetrieval;

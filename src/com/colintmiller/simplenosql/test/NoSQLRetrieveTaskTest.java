@@ -1,4 +1,4 @@
-package com.colintmiller.simplenosql;
+package com.colintmiller.simplenosql.test;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,15 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import com.colintmiller.simplenosql.DataComparator;
+import com.colintmiller.simplenosql.DataFilter;
+import com.colintmiller.simplenosql.NoSQL;
+import com.colintmiller.simplenosql.NoSQLEntity;
+import com.colintmiller.simplenosql.OperationObserver;
+import com.colintmiller.simplenosql.RetrievalCallback;
 import com.colintmiller.simplenosql.bean.OldSampleBean;
 import com.colintmiller.simplenosql.bean.SampleBean;
+import com.colintmiller.simplenosql.utils.TestUtils;
 
 /**
  * Tests for the RetrieveTask for querying data from the DB. This includes querying a single entity or
