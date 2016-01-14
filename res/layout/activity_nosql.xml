@@ -4,11 +4,27 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center"
+    android:addStatesFromChildren="true"
     android:background="@drawable/bg"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp"
     android:paddingTop="20dp" >
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="Hawk,一个功能强大的Android NoSql 缓存框架，简单易用，安全、灵活，无需SQL语句、经实测，可以直接存储上M数据，"
+        android:textColor="#FF2525"
+        android:layout_marginBottom="30dp"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/etFirstName"

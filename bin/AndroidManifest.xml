@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.xiangbalao.simplenosqldome"
+    package="org.xiangbalao.hawkdome"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +19,7 @@
         <uses-library android:name="android.test.runner" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="org.xiangbalao.hawkdome.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +32,6 @@
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:label="nosql"
-        android:targetPackage="org.xiangbalao.simplenosqldome" />
+        android:targetPackage="org.xiangbalao.hawkdome" />
 
 </manifest>
