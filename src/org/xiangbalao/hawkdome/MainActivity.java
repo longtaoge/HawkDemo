@@ -1,8 +1,12 @@
 package org.xiangbalao.hawkdome;
 
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -120,19 +124,49 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private void query() {
 
-		User qUser = Hawk.get(key);
+		// User qUser = Hawk.get(key);
 
-		if (qUser != null) {
+		// if (qUser != null) {
+		//
+		// tvFirstName.setText(qUser.getFristname() + "");
+		// tvLastName.setText(qUser.getLastname() + "");
+		//
+		// } else {
+		// tvFirstName.setText("");
+		// tvLastName.setText("");
+		// Toast.makeText(MainActivity.this, "没有查到", Toast.LENGTH_SHORT)
+		// .show();
+		// }
 
-			tvFirstName.setText(qUser.getFristname() + "");
-			tvLastName.setText(qUser.getLastname() + "");
+		Hawk.<User> getObservable(key).subscribeOn(Schedulers.computation())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Subscriber<User>() {
+					@Override
+					public void onCompleted() {
+						Log.d("rxtest", "completed");
+					}
 
-		} else {
-			tvFirstName.setText("");
-			tvLastName.setText("");
-			Toast.makeText(MainActivity.this, "没有查到", Toast.LENGTH_SHORT)
-					.show();
-		}
+					@Override
+					public void onError(Throwable e) {
+						Log.d("rxtest", "error" + e.toString());
+					}
+
+					@Override
+					public void onNext(User qUser) {
+						if (qUser != null) {
+
+							tvFirstName.setText(qUser.getFristname() + "");
+							tvLastName.setText(qUser.getLastname() + "");
+
+						} else {
+							tvFirstName.setText("");
+							tvLastName.setText("");
+							Toast.makeText(MainActivity.this, "没有查到",
+									Toast.LENGTH_SHORT).show();
+						}
+					}
+				});
+
 	}
 
 	private void update() {
@@ -151,7 +185,27 @@ public class MainActivity extends Activity implements OnClickListener {
 		User mUser = new User();
 		mUser.setFristname(etFirstName.getText().toString());
 		mUser.setLastname(lastname.getText().toString());
-		Hawk.put(key, mUser);
+
+		Hawk.putObservable(key, mUser).subscribeOn(Schedulers.computation())
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Subscriber<Boolean>() {
+					@Override
+					public void onCompleted() {
+						Log.i("rxtest", "onCompleted");
+					}
+
+					@Override
+					public void onError(Throwable e) {
+						Log.i("rxtest", "onError" + e.toString());
+					}
+
+					@Override
+					public void onNext(Boolean s) {
+						Log.i("rxtest", "onNext" + s);
+					}
+				});
+
+		// Hawk.put(key, mUser);
 
 	}
 
